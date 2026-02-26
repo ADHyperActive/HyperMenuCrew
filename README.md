@@ -363,47 +363,47 @@ Technically yes, but **please use responsibly**. We recommend private lobbies wi
 <details>
 <summary>📌 Click to expand all SEO keywords</summary>
 
-### 🎯 Primary Keywords
-`among us mod menu` `among us hack` `among us cheat` `among us mod` `among us hacks` `among us cheats` `among us mod menu 2026` `among us hack 2026` `among us cheat 2026` `among us hacker` `among us modded` `among us trainer`
+### �️ GitHub Topics (Optimized — 100% Competitor Overlap)
+`among-us` `amongus` `among-us-hack` `among-us-cheat` `among-us-mods` `among-us-mod` `amongusmod` `amongusmods` `amongus-hack` `amongus-cheat` `amongushack` `among-us-esp` `among-us-menu` `amongus-mod-menu` `among-us-always-impostor` `among-us-hack-2026` `cheat-menu` `il2cpp` `modmenucrew` `crewcore`
 
-### 🌍 Multi-Language Keywords
-`among us hack español` `among us hack português` `among us mod русский` `among us hack 日本語` `among us mod français` `among us hack deutsch` `hack para among us` `trucos among us` `trapacear among us`
+### � Primary Keywords
+`among us mod menu` `among us hack` `among us cheat` `among us mod` `among us hacks` `among us cheats` `among us mod menu 2026` `among us hack 2026` `among us cheat 2026` `among us hacker` `among us modded` `among us trainer` `among us mod menu pc` `among us hack pc` `among us cheat engine` `among us exploit` `among us glitch` `among us bypass`
 
 ### 🎮 Feature Keywords
-`among us god mode` `among us speed hack` `among us teleport hack` `among us noclip` `among us wall hack` `among us kill cooldown hack` `among us impostor hack` `among us role hack` `among us always impostor` `among us instant kill` `among us fly hack` `among us esp` `among us radar` `among us see through walls` `among us complete all tasks` `among us task hack` `among us sabotage hack` `among us vent hack` `among us unlimited vision` `among us full brightness` `among us no fog` `among us phantom mode` `among us disable game end` `among us unlock all skins` `among us overload crash` `among us reveal votes`
+`among us god mode` `among us speed hack` `among us teleport hack` `among us noclip` `among us wall hack` `among us wallhack` `among us kill cooldown hack` `among us impostor hack` `among us role hack` `among us always impostor` `among us force impostor` `among us instant kill` `among us fly hack` `among us esp` `among us esp hack` `among us radar` `among us radar hack` `among us see through walls` `among us complete all tasks` `among us task hack` `among us sabotage hack` `among us vent hack` `among us unlimited vision` `among us full brightness` `among us no fog` `among us phantom mode` `among us viper mode` `among us disable game end` `among us unlock all skins` `among us unlock all cosmetics` `among us free skins` `among us free hats` `among us free pets` `among us overload crash` `among us reveal votes` `among us see votes` `among us kill anyone` `among us mass kill` `among us kill all` `among us no kill cooldown` `among us freecam` `among us zoom hack` `among us satellite view` `among us see ghosts` `among us dead chat` `among us replay system` `among us game recorder`
 
-### 💀 Impostor Keywords
-`among us impostor mod menu` `among us force impostor` `among us always be impostor` `among us impostor cheat` `among us impostor hack 2026` `among us kill anyone` `among us mass kill` `among us kill all` `among us no kill cooldown`
+### 💀 Impostor & Role Keywords
+`among us impostor mod menu` `among us always be impostor` `among us impostor cheat` `among us impostor hack 2026` `among us role assigner` `among us shapeshifter hack` `among us engineer hack` `among us scientist hack` `among us role changer` `among us team switch` `among us force win`
 
 ### 🔧 Technical Keywords
-`among us bepinex mod` `among us il2cpp hack` `among us dll mod` `among us plugin hack` `among us harmony patch` `among us net6 mod` `among us modding 2026` `among us mod loader` `among us injector`
+`among us bepinex mod` `among us bepinex` `among us il2cpp hack` `among us il2cpp mod` `among us dll mod` `among us dll injection` `among us plugin hack` `among us harmony patch` `among us harmony mod` `among us net6 mod` `among us modding 2026` `among us mod loader` `among us injector` `among us internal mod` `among us proxy dll` `among us csharp mod` `among us open source mod` `among us mod source code`
 
-### 📥 Download Keywords
-`among us mod menu download` `among us hack download` `among us cheat download` `among us mod download free` `among us hack free download` `download among us mod menu` `baixar mod menu among us` `descargar hack among us` `among us mod menu pc download` `among us hack pc 2026`
-
-### 🔑 Access Keywords
-`among us mod menu free` `among us hack free` `among us cheat free` `among us mod menu gratis` `among us hack grátis` `among us free hack 2026` `among us working mod menu` `among us undetected hack` `among us safe cheat` `among us legit hack`
+### 📥 Download & Access Keywords
+`among us mod menu download` `among us hack download` `among us cheat download` `among us mod download free` `among us hack free download` `download among us mod menu` `among us mod menu pc download` `among us hack pc 2026` `among us mod menu free` `among us hack free` `among us cheat free` `among us free hack 2026` `among us working mod menu` `among us undetected hack` `among us safe cheat` `among us legit hack` `among us no ban hack` `among us anti ban` `among us undetected mod menu` `among us safe mod menu 2026`
 
 ### 🖥️ Platform Keywords
-`among us pc hack` `among us steam hack` `among us pc mod menu` `among us steam mod menu` `among us windows hack` `among us desktop cheat` `among us pc cheat 2026` `among us epic games hack` `among us epic games mod` `among us itch.io mod` `among us xbox app mod` `among us microsoft store hack`
+`among us pc hack` `among us steam hack` `among us pc mod menu` `among us steam mod menu` `among us steam cheat` `among us windows hack` `among us desktop cheat` `among us pc cheat 2026` `among us epic games hack` `among us epic games mod` `among us itch.io mod` `among us xbox app mod` `among us microsoft store hack` `among us windows 10 mod` `among us windows 11 mod`
 
-### 🏷️ Alternative Names
-`amog us hack` `amogus mod menu` `amogus hack` `sus mod menu` `among us sus hack` `crewmate hack` `impostor hack among us` `among us external hack` `among us internal hack` `among us menu hack`
+### 🏷️ Alternative Names & Slang
+`amog us hack` `amogus mod menu` `amogus hack` `amogus cheat` `sus mod menu` `among us sus hack` `crewmate hack` `impostor hack among us` `among us menu hack` `among us cheat menu` `among us hack menu` `among us mod menu gui` `among us imgui mod` `malum menu alternative` `among us best mod menu` `among us most features mod`
 
 ### 📺 Content Creator Keywords
-`among us troll mod` `among us funny mod` `among us streamer mod` `among us youtuber tools` `among us content creator mod` `among us private lobby tools` `among us testing tools` `among us host tools`
+`among us troll mod` `among us funny mod` `among us streamer mod` `among us youtuber tools` `among us content creator mod` `among us private lobby tools` `among us testing tools` `among us host tools` `among us lobby control` `among us host mod menu` `among us admin tools`
 
 ### 🔥 Trending Keywords 2026
-`among us mod menu 2026 working` `among us hack 2026 updated` `among us cheat 2026 undetected` `among us mod menu february 2026` `among us latest hack` `among us new mod menu` `among us updated hack` `among us working cheat 2026`
+`among us mod menu 2026 working` `among us hack 2026 updated` `among us cheat 2026 undetected` `among us mod menu february 2026` `among us mod menu march 2026` `among us latest hack` `among us new mod menu` `among us updated hack` `among us working cheat 2026` `among us v17 mod` `among us v17.1.0 hack` `among us new update hack` `among us latest version mod` `among us 2026 undetected` `among us mod menu working today` `best among us hack 2026` `best among us mod menu 2026`
 
 ### 🇧🇷 Portuguese (Brazil) Keywords
-`among us hack brasileiro` `among us mod menu brasil` `among us trapaca` `hack among us atualizado` `mod menu among us 2026` `among us cheat pt-br` `among us hack funciona` `baixar hack among us` `among us mod menu grátis` `among us hack sem vírus` `among us impostor hack br` `among us teleporte hack` `among us velocidade hack` `among us visão hack` `among us tarefas completas`
+`among us hack brasileiro` `among us mod menu brasil` `among us trapaca` `hack among us atualizado` `mod menu among us 2026` `among us cheat pt-br` `among us hack funciona` `baixar hack among us` `among us mod menu grátis` `among us hack sem vírus` `among us impostor hack br` `among us teleporte hack` `among us velocidade hack` `among us visão hack` `among us tarefas completas` `baixar mod menu among us` `among us hack atualizado 2026` `among us mod menu download grátis` `melhor hack among us` `among us hack pc brasileiro`
 
 ### 🇪🇸 Spanish Keywords
-`among us hack español` `among us mod menu español` `among us trucos` `hack among us actualizado` `mod menu among us gratis` `among us trampas` `descargar hack among us` `among us hack funcionando` `among us sin hack detectado`
+`among us hack español` `among us mod menu español` `among us trucos` `hack among us actualizado` `mod menu among us gratis` `among us trampas` `descargar hack among us` `among us hack funcionando` `among us sin hack detectado` `mejor hack among us 2026` `among us mod menu descargar` `among us hack impostor español` `among us trampa impostor`
+
+### 🌍 Multi-Language Keywords
+`among us mod русский` `among us hack 日本語` `among us mod français` `among us hack deutsch` `among us hack türkçe` `among us hack italiano` `among us hack 한국어` `among us hack العربية` `among us mod menu indonesia` `among us hack philippines` `among us hack polski`
 
 ### 🔗 Related Searches
-`crewcore` `crewcore online` `modmenucrew` `crew mod` `among us utility mod` `among us qol mod` `among us quality of life` `among us lobby tools` `among us admin tools` `among us debug tools`
+`crewcore` `crewcore online` `crewcore.online` `modmenucrew` `modmenucrew download` `crew mod` `among us utility mod` `among us qol mod` `among us quality of life` `among us lobby tools` `among us debug tools` `among us cosmetics unlocker` `among us level spoof` `among us platform spoof` `among us spoofing`
 
 </details>
 
@@ -458,7 +458,7 @@ to the original author (Luke Dennyel / CrewCore).
 
 <p align="center">
   <sub>
-    among us mod menu | among us hack | among us cheat | among us hacks 2026 | among us mod menu download | among us hack download | among us cheat download free | among us impostor hack | among us always impostor | among us speed hack | among us teleport | among us noclip | among us god mode | among us wall hack | among us esp hack | crewcore | modmenucrew | among us v6 | among us phantom mode | among us disable game end | unlock all skins | among us overload | among us reveal votes | among us crash lobby
+    among us mod menu | among us hack | among us cheat | among us mod menu 2026 | among us hack 2026 | among us mod menu download | among us hack download | among us cheat download free | among us impostor hack | among us always impostor | among us force impostor | among us speed hack | among us teleport | among us noclip | among us god mode | among us wall hack | among us wallhack | among us esp | among us esp hack | among us radar | among us mod menu free | among us hack free | among us undetected | among us no ban | among us pc hack | among us steam hack | among us unlock all skins | among us free cosmetics | among us phantom mode | among us viper mode | among us overload | among us reveal votes | among us freecam | among us replay system | among us kill all | among us no kill cooldown | crewcore | modmenucrew | amogus hack | among us best mod menu 2026 | baixar mod menu among us | among us hack español | among us mod menu working today | best among us hack 2026
   </sub>
 </p>
 

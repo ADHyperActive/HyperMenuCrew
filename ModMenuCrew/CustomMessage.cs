@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace ModMenuCrew.Messages
 {
+    /// <summary>Types of custom messages that can be sent between players.</summary>
     public enum MessageType : byte
     {
         Normal = 0,
@@ -15,6 +16,10 @@ namespace ModMenuCrew.Messages
         Broadcast = 4
     }
 
+    /// <summary>
+    /// Represents a custom network message sent via RPC.
+    /// Used for broadcasting commands and chat messages between players.
+    /// </summary>
     public class CustomMessage
     {
         public byte Tag { get; set; }
@@ -57,13 +62,12 @@ namespace ModMenuCrew.Messages
             return message;
         }
 
-        // Método para enviar a mensagem com bypass
+        /// <summary>Sends this message to all players via RPC.</summary>
         public void SendBypass()
         {
             if (AmongUsClient.Instance == null || !AmongUsClient.Instance.AmConnected) return;
             if (PlayerControl.LocalPlayer == null) return;
 
-            // Envia para todos os jogadores
             MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(
                 PlayerControl.LocalPlayer.NetId,
                 (byte)CustomRpcCalls.BroadcastMessage,
@@ -75,7 +79,7 @@ namespace ModMenuCrew.Messages
             AmongUsClient.Instance.FinishRpcImmediately(writer);
         }
 
-        // Método para processar a mensagem recebida
+        /// <summary>Handles an incoming custom message from the network.</summary>
         public static void HandleBypass(MessageReader reader)
         {
             try
@@ -88,18 +92,17 @@ namespace ModMenuCrew.Messages
 
                     if (player != null)
                     {
-                        // Exibe a mensagem para todos os jogadores
                         HudManager.Instance.Chat.AddChat(player, message.Content);
                     }
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError($"Erro ao processar mensagem: {e.Message}");
+                Debug.LogError($"[CustomMessage] Error processing message: {e.Message}");
             }
         }
 
-        // Método de exemplo para enviar uma mensagem
+        /// <summary>Broadcasts a text message to all players in the lobby.</summary>
         public static void SendMessageToAll(string messageContent)
         {
             if (PlayerControl.LocalPlayer == null) return;
@@ -115,7 +118,7 @@ namespace ModMenuCrew.Messages
             message.SendBypass();
         }
 
-        // Método para enviar mensagem privada
+        /// <summary>Sends a private message to a specific player (sent via broadcast, filtered client-side).</summary>
         public static void SendPrivateMessage(string messageContent, PlayerControl targetPlayer)
         {
             if (PlayerControl.LocalPlayer == null || targetPlayer == null) return;
@@ -132,24 +135,23 @@ namespace ModMenuCrew.Messages
         }
     }
 
-    // Enum para RPCs personalizados
+    /// <summary>Custom RPC call IDs used by ModMenuCrew.</summary>
     public enum CustomRpcCalls : byte
     {
         BroadcastMessage = 201
     }
 
-    // Patch para processar RPCs personalizados
+    /// <summary>Harmony patch to intercept and handle custom RPC calls.</summary>
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.HandleRpc))]
     public static class RpcPatch
     {
         public static void Postfix(PlayerControl __instance, byte callId, MessageReader reader)
         {
-            // Só processa nosso RPC customizado, nunca interfere nos nativos!
+            // Only process our custom RPC — never interfere with vanilla RPCs
             if (callId == (byte)CustomRpcCalls.BroadcastMessage)
             {
                 CustomMessage.HandleBypass(reader);
             }
-            // Nunca altere o fluxo para outros RPCs!
         }
     }
 }

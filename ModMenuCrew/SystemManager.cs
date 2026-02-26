@@ -3,45 +3,45 @@ using UnityEngine;
 
 namespace ModMenuCrew;
 
+/// <summary>
+/// Utility class for controlling doors and ship systems.
+/// </summary>
 public static class SystemManager
 {
     /// <summary>
-    /// Fecha as portas de um sistema específico, se aplicável.
+    /// Closes the doors for a specific room/system type.
     /// </summary>
     public static void CloseDoorsOfType(SystemTypes type)
     {
         if (!ShipStatus.Instance)
         {
-            ShowNotification("Erro: ShipStatus não está disponível!");
+            ShowNotification("Error: ShipStatus not available!");
             return;
         }
         if (!IsDoorSystem(type))
         {
-            ShowNotification($"O sistema {type} não possui portas para fechar.");
+            ShowNotification($"{type} does not have closeable doors.");
             return;
         }
         try
         {
-            // Envia RPC para todos, incluindo host
             MessageWriter messageWriter = AmongUsClient.Instance.StartRpcImmediately(
                 ShipStatus.Instance.NetId, 27, SendOption.Reliable, AmongUsClient.Instance.HostId);
             messageWriter.Write((byte)type);
             AmongUsClient.Instance.FinishRpcImmediately(messageWriter);
 
-            // Fecha localmente para feedback imediato
             ShipStatus.Instance.RpcCloseDoorsOfType(type);
-
-            ShowNotification($"Portas de {type} fechadas!");
+            ShowNotification($"{type} doors closed!");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"Erro ao fechar portas de {type}: {e}");
-            ShowNotification($"Erro ao fechar portas de {type}!");
+            Debug.LogError($"[SystemManager] Error closing {type} doors: {e}");
+            ShowNotification($"Error closing {type} doors!");
         }
     }
 
     /// <summary>
-    /// Verifica se o tipo de sistema possui portas.
+    /// Checks if the given system type has closeable doors.
     /// </summary>
     private static bool IsDoorSystem(SystemTypes type)
     {
@@ -60,7 +60,7 @@ public static class SystemManager
         }
     }
 
-    // Exibe notificação visual no HUD de forma segura
+    /// <summary>Shows an in-game notification via the HUD notifier.</summary>
     private static void ShowNotification(string message)
     {
         try
@@ -72,12 +72,12 @@ public static class SystemManager
             }
             else
             {
-                Debug.LogWarning("HudManager.Instance ou Notifier está nulo, não foi possível mostrar a notificação.");
+                Debug.LogWarning("[SystemManager] HudManager or Notifier is null.");
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"Erro ao mostrar notificação: {e}");
+            Debug.LogError($"[SystemManager] Notification error: {e}");
         }
     }
 }

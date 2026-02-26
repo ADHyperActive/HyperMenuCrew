@@ -6,6 +6,17 @@ using UnityEngine;
 
 namespace ModMenuCrew.UI.Managers;
 
+/// <summary>
+/// Handles all teleportation logic: to map locations, to players, and mass teleport (host-only).
+/// Includes cooldown validation, distance checks, retry logic, and RPC sync.
+/// 
+/// <b>HOW TO ADD A NEW TELEPORT LOCATION:</b>
+/// Add an entry to the <c>locations</c> dictionary in the constructor:
+/// <code>
+/// { SystemTypes.Weapons, new Vector2(4.5f, 4f) }
+/// </code>
+/// The location will automatically appear as a button in the Movement tab.
+/// </summary>
 public class TeleportManager
 {
     private const byte TELEPORT_RPC = 230;

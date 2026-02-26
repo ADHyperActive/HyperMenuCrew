@@ -8,6 +8,15 @@ using static ModMenuCrew.ModMenuCrewPlugin;
 
 namespace ModMenuCrew.UI;
 
+/// <summary>
+/// Alternative menu layout that uses <see cref="MenuSection"/> for collapsible groups.
+/// Demonstrates how to organize tabs with sections, buttons, toggles, and sliders.
+/// Commands are sent via <see cref="CustomMessage"/> RPC bypass.
+/// 
+/// <b>NOTE:</b> This class is not used by default in the showcase — the main plugin uses
+/// inline draw methods in DebuggerComponent instead. This exists as a reference for
+/// developers who prefer a section-based architecture.
+/// </summary>
 public class MenuSystem
 {
     private readonly DebuggerComponent component;
@@ -194,24 +203,23 @@ public class MenuSystem
         }
     }
 
+    /// <summary>
+    /// Sends a command to all players via CustomMessage RPC bypass.
+    /// The command string and arguments are pipe-delimited.
+    /// </summary>
     private void SendBypassCommand(string command, params string[] args)
     {
-
         if (AmongUsClient.Instance == null || !AmongUsClient.Instance.AmConnected) return;
 
-        // Cria uma mensagem personalizada
         var message = new CustomMessage(
-            tag: 1, // Tag da mensagem
-            senderId: PlayerControl.LocalPlayer.PlayerId, // ID do remetente
-            senderName: PlayerControl.LocalPlayer.Data.PlayerName, // Nome do remetente
-            content: $"{command}|{string.Join("|", args)}", // Conteúdo da mensagem
-            type: MessageType.Command // Tipo da mensagem
+            tag: 1,
+            senderId: PlayerControl.LocalPlayer.PlayerId,
+            senderName: PlayerControl.LocalPlayer.Data.PlayerName,
+            content: $"{command}|{string.Join("|", args)}",
+            type: MessageType.Command
         );
 
-        // Envia a mensagem com bypass
         message.SendBypass();
-
-
     }
 
     private PlayerControl GetClosestPlayer()

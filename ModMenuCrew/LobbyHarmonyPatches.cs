@@ -337,7 +337,7 @@ namespace ModMenuCrew.Patches
         #endregion
     }
 
-    #region Componente de Tooltip
+    #region Tooltip Component
     public class ModTooltipHandler : MonoBehaviour
     {
         private TextMeshPro _textComponent;

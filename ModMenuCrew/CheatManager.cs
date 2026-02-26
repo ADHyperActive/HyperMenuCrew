@@ -5,6 +5,26 @@ using BepInEx.Unity.IL2CPP.Utils.Collections;
 
 namespace ModMenuCrew.UI.Managers
 {
+    /// <summary>
+    /// Manages the "Cheats" tab content — quick actions, vision multiplier, and cursor teleport.
+    /// 
+    /// <b>HOW TO ADD A NEW CHEAT BUTTON:</b>
+    /// <code>
+    /// // Inside DrawGeneralCheatsSection():
+    /// if (GUILayout.Button("My Cheat", GuiStyles.ButtonStyle))
+    ///     MyCheatMethod();
+    /// </code>
+    /// 
+    /// <b>HOW TO ADD A NEW TOGGLE:</b>
+    /// <code>
+    /// // 1. Add a property:
+    /// public bool MyToggle { get; set; }
+    /// // 2. Draw it:
+    /// MyToggle = GUILayout.Toggle(MyToggle, "My Toggle", GuiStyles.ToggleStyle);
+    /// // 3. Apply in Update():
+    /// if (MyToggle) { /* effect */ }
+    /// </code>
+    /// </summary>
     public class CheatManager
     {
         public static CheatManager Instance { get; private set; }

@@ -6,58 +6,56 @@ namespace ModMenuCrew.UI.Styles;
 public static class GuiStyles
 {
     /// <summary>
-    /// Defini��es de cores para o tema visual do mod.
+    /// Color definitions for the mod's visual theme.
     /// </summary>
     public static class Theme
     {
         // === SHOWCASE VERSION BADGE ===
         public static readonly Color ShowcaseBadge = new Color(1f, 0.5f, 0f, 1f); // Orange badge
         public static readonly Color ShowcaseGlow = new Color(1f, 0.6f, 0.1f, 0.3f); // Orange glow
-        // Cores de Fundo
-        public static readonly Color BgDarkA = new Color(0.07f, 0.07f, 0.07f, 0.92f); // Fundo principal mais escuro
-        public static readonly Color BgDarkB = new Color(0.06f, 0.06f, 0.06f, 0.92f); // Fundo principal mais claro
-        public static readonly Color BgSection = new Color(0.05f, 0.05f, 0.06f, 0.85f); // Fundo para se��es
+        // Background Colors
+        public static readonly Color BgDarkA = new Color(0.07f, 0.07f, 0.07f, 0.92f); // Main background darker
+        public static readonly Color BgDarkB = new Color(0.06f, 0.06f, 0.06f, 0.92f); // Main background lighter
+        public static readonly Color BgSection = new Color(0.05f, 0.05f, 0.06f, 0.85f); // Background for sections
 
-        // Cores de Cabe�alho
-        public static readonly Color HeaderTop = new Color(0.10f, 0.02f, 0.04f, 0.95f); // Gradiente superior do cabe�alho
-        public static readonly Color HeaderBottom = new Color(0.06f, 0.01f, 0.03f, 0.95f); // Gradiente inferior do cabe�alho
+        // Header Colors
+        public static readonly Color HeaderTop = new Color(0.10f, 0.02f, 0.04f, 0.95f); // Gradient top of header
+        public static readonly Color HeaderBottom = new Color(0.06f, 0.01f, 0.03f, 0.95f); // Gradient bottom of header
 
-        // Cores de Destaque e Acentua��o
-        public static readonly Color Accent = new Color(1f, 0.5f, 0f, 1f); // Laranja vitrine
-        public static readonly Color AccentSoft = new Color(1f, 0.6f, 0.2f, 1f); // Laranja suave
-        public static readonly Color AccentDim = new Color(0.7f, 0.35f, 0f, 1f); // Laranja escuro
-        public static readonly Color AccentHover = new Color(1f, 0.55f, 0.1f, 1f); // Laranja hover
-        public static readonly Color AccentActive = new Color(0.85f, 0.42f, 0f, 1f); // Laranja ativo
+        // Accent Colors
+        public static readonly Color Accent = new Color(1f, 0.5f, 0f, 1f); // Orange accent
+        public static readonly Color AccentSoft = new Color(1f, 0.6f, 0.2f, 1f); // Soft orange accent
+        public static readonly Color AccentDim = new Color(0.7f, 0.35f, 0f, 1f); // Dark orange accent
+        public static readonly Color AccentHover = new Color(1f, 0.55f, 0.1f, 1f); // Orange hover accent
+        public static readonly Color AccentActive = new Color(0.85f, 0.42f, 0f, 1f); // Active orange accent
 
-        // Cores de Bot�o
-        public static readonly Color ButtonTop = new Color(0.11f, 0.11f, 0.12f, 0.95f); // Gradiente superior do bot�o
-        public static readonly Color ButtonBottom = new Color(0.08f, 0.08f, 0.10f, 0.95f); // Gradiente inferior do bot�o
-        public static readonly Color ButtonHoverTop = new Color(0.13f, 0.13f, 0.16f, 0.95f); // Gradiente superior do bot�o em hover
-        public static readonly Color ButtonHoverBottom = new Color(0.10f, 0.10f, 0.13f, 0.95f); // Gradiente inferior do bot�o em hover
-        public static readonly Color ButtonActiveTop = new Color(0.12f, 0.02f, 0.05f, 0.95f); // Gradiente superior do bot�o ativo
-        public static readonly Color ButtonActiveBottom = new Color(0.09f, 0.02f, 0.04f, 0.95f); // Gradiente inferior do bot�o ativo
+        // Button Colors
+        public static readonly Color ButtonTop = new Color(0.11f, 0.11f, 0.12f, 0.95f); // Gradient top of button
+        public static readonly Color ButtonBottom = new Color(0.08f, 0.08f, 0.10f, 0.95f); // Gradient bottom of button
+        public static readonly Color ButtonHoverTop = new Color(0.13f, 0.13f, 0.16f, 0.95f); // Gradient top of button on hover
+        public static readonly Color ButtonHoverBottom = new Color(0.10f, 0.10f, 0.13f, 0.95f); // Gradient bottom of button on hover
+        public static readonly Color ButtonActiveTop = new Color(0.12f, 0.02f, 0.05f, 0.95f); // Gradient top of active button
+        public static readonly Color ButtonActiveBottom = new Color(0.09f, 0.02f, 0.04f, 0.95f); // Gradient bottom of active button
 
-        // Cores de Texto
-        public static readonly Color TextPrimary = new Color(0.96f, 0.96f, 0.98f, 1f); // Texto principal claro
-        public static readonly Color TextMuted = new Color(0.78f, 0.78f, 0.82f, 1f); // Texto secund�rio mais claro
-        public static readonly Color TextDisabled = new Color(0.5f, 0.5f, 0.55f, 1f); // Texto para itens desabilitados
+        // Text Colors
+        public static readonly Color TextPrimary = new Color(0.96f, 0.96f, 0.98f, 1f); // Primary text color
+        public static readonly Color TextMuted = new Color(0.78f, 0.78f, 0.82f, 1f); // Secondary text color
+        public static readonly Color TextDisabled = new Color(0.5f, 0.5f, 0.55f, 1f); // Text color for disabled items
 
-        // Cores de Estado e Feedback
-        public static readonly Color Error = new Color(1f, 0.15f, 0.15f, 1f); // Cor para erros
-        public static readonly Color Success = new Color(0.2f, 0.8f, 0.4f, 1f); // Cor para sucesso
-        public static readonly Color Warning = new Color(0.9f, 0.7f, 0.2f, 1f); // Cor para avisos
+        // State & Feedback Colors
+        public static readonly Color Error = new Color(1f, 0.15f, 0.15f, 1f); // Error color
+        public static readonly Color Success = new Color(0.2f, 0.8f, 0.4f, 1f); // Success color
+        public static readonly Color Warning = new Color(0.9f, 0.7f, 0.2f, 1f); // Warning color
     }
 
-    #region Textura Helpers (Otimizados)
-    // Texturas s�o geradas uma vez e reutilizadas, ou criadas sob demanda e armazenadas em cache.
-    // Usando HideFlags.HideAndDontSave para evitar que apare�am no Hierarchy/Inspector do Unity.
+    #region Texture Helpers (Optimized)
+    // Textures are generated once and reused, or created on demand and cached.
+    // Using HideFlags.HideAndDontSave to prevent them from appearing in Unity's Hierarchy/Inspector.
     private static Texture2D _cachedPixelDarkTexture;
     private static Texture2D _cachedPixelAccentTexture;
     private static Texture2D _cachedPixelErrorTexture;
 
-    /// <summary>
-    /// Cria uma textura vertical gradiente.
-    /// </summary>
+    /// <summary>Creates a vertical gradient texture.</summary>
     private static Texture2D MakeVerticalGradientTexture(int width, int height, Color top, Color bottom)
     {
         if (width < 1) width = 1;
@@ -82,9 +80,7 @@ public static class GuiStyles
         return texture;
     }
 
-    /// <summary>
-    /// Cria uma textura com borda.
-    /// </summary>
+    /// <summary>Creates a bordered frame texture with gradient fill.</summary>
     private static Texture2D MakeFrameTexture(int width, int height, Color innerTop, Color innerBottom, Color border, int borderThickness)
     {
         if (width < borderThickness * 2 + 1) width = borderThickness * 2 + 1;
@@ -110,14 +106,12 @@ public static class GuiStyles
         return tex;
     }
 
-    /// <summary>
-    /// Cria uma textura monocrom�tica de tamanho espec�fico.
-    /// </summary>
+    /// <summary>Creates a solid color texture of the specified size.</summary>
     private static Texture2D MakeTexture(int width, int height, Color color)
     {
         var tex = new Texture2D(width, height, TextureFormat.RGBA32, false);
         tex.wrapMode = TextureWrapMode.Clamp;
-        tex.filterMode = FilterMode.Bilinear; // Bilinear para suavizar levemente bordas se necess�rio
+        tex.filterMode = FilterMode.Bilinear;
         tex.hideFlags = HideFlags.HideAndDontSave;
 
         Color[] pixels = new Color[width * height];
@@ -130,27 +124,23 @@ public static class GuiStyles
         return tex;
     }
 
-    /// <summary>
-    /// Cria uma textura monocrom�tica 1x1, reutiliz�vel. Caching para as mais comuns.
-    /// </summary>
+    /// <summary>Creates a 1x1 solid color texture. Caches common colors for reuse.</summary>
     private static Texture2D MakeTexture(Color color)
     {
-        // Caching para texturas muito comuns para evitar recria��o
+        // Cache common textures to avoid recreation
         if (color == Theme.BgDarkB) { if (_cachedPixelDarkTexture == null) _cachedPixelDarkTexture = MakeTexture(1, 1, color); return _cachedPixelDarkTexture; }
         if (color == Theme.Accent) { if (_cachedPixelAccentTexture == null) _cachedPixelAccentTexture = MakeTexture(1, 1, color); return _cachedPixelAccentTexture; }
         if (color == Theme.Error) { if (_cachedPixelErrorTexture == null) _cachedPixelErrorTexture = MakeTexture(1, 1, color); return _cachedPixelErrorTexture; }
 
         var texture = new Texture2D(1, 1, TextureFormat.RGBA32, false);
         texture.SetPixel(0, 0, color);
-        texture.filterMode = FilterMode.Bilinear; // Bilinear para texturas de cor s�lida tamb�m pode suavizar visualmente
+        texture.filterMode = FilterMode.Bilinear;
         texture.hideFlags = HideFlags.HideAndDontSave;
         texture.Apply();
         return texture;
     }
 
-    /// <summary>
-    /// Cria um RectOffset reutiliz�vel.
-    /// </summary>
+    /// <summary>Creates a reusable RectOffset.</summary>
     private static RectOffset CreateRectOffset(int left, int right, int top, int bottom)
     {
         var offset = new RectOffset();
@@ -162,8 +152,8 @@ public static class GuiStyles
     }
     #endregion
 
-    #region Estilos Privados (Lentamente Inicializados)
-    // Estilos s�o inicializados sob demanda para evitar overhead na inicializa��o do jogo.
+    #region Private Style Fields (Lazy-Initialized)
+    // Styles are initialized on first access to avoid startup overhead.
     private static GUIStyle _headerStyle;
     private static GUIStyle _subHeaderStyle;
     private static GUIStyle _buttonStyle;
@@ -190,7 +180,7 @@ public static class GuiStyles
     private static GUIStyle _textFieldStyle;
     #endregion
 
-    #region Estilos P�blicos (Propriedades com Inicializa��o Pregui�osa)
+    #region Public Style Properties (Lazy-Initialized)
     public static GUIStyle HeaderStyle
     {
         get
@@ -199,13 +189,9 @@ public static class GuiStyles
             {
                 _headerStyle = new GUIStyle(GUI.skin.label)
                 {
-                    fontSize = 18, // Aumentado
-                    fontStyle = FontStyle.Bold,
+                    fontSize = 18,                     fontStyle = FontStyle.Bold,
                     alignment = TextAnchor.MiddleLeft,
-                    normal = { textColor = Theme.Accent }, // Mantido o acento
-                    padding = CreateRectOffset(12, 12, 10, 10), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(8, 8, 4, 8) // Ajustado e usando CreateRectOffset
-                };
+                    normal = { textColor = Theme.Accent },                     padding = CreateRectOffset(12, 12, 10, 10),                     margin = CreateRectOffset(8, 8, 4, 8)                 };
                 _headerStyle.richText = true;
             }
             return _headerStyle;
@@ -223,10 +209,8 @@ public static class GuiStyles
                     fontSize = 14,
                     fontStyle = FontStyle.Bold,
                     alignment = TextAnchor.MiddleLeft,
-                    normal = { textColor = Theme.TextMuted }, // Mantido
-                    padding = CreateRectOffset(10, 10, 7, 7), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(8, 8, 2, 6) // Ajustado e usando CreateRectOffset
-                };
+                    normal = { textColor = Theme.TextMuted },
+                    padding = CreateRectOffset(10, 10, 7, 7),                     margin = CreateRectOffset(8, 8, 2, 6)                 };
                 _subHeaderStyle.richText = true;
             }
             return _subHeaderStyle;
@@ -251,12 +235,10 @@ public static class GuiStyles
                 _buttonStyle.normal.background = MakeFrameTexture(16, 64, Theme.ButtonTop, Theme.ButtonBottom, Theme.AccentDim, 1);
                 _buttonStyle.hover.background = MakeFrameTexture(16, 64, Theme.ButtonHoverTop, Theme.ButtonHoverBottom, Theme.AccentHover, 1);
                 _buttonStyle.active.background = MakeFrameTexture(16, 64, Theme.ButtonActiveTop, Theme.ButtonActiveBottom, Theme.AccentActive, 1);
-                _buttonStyle.focused.background = _buttonStyle.hover.background; // Adicionado
-                _buttonStyle.richText = true;
+                _buttonStyle.focused.background = _buttonStyle.hover.background;                 _buttonStyle.richText = true;
             }
             else if (_buttonStyle.normal?.background == null || _buttonStyle.hover?.background == null || _buttonStyle.active?.background == null)
             {
-                // Recupera��o de falha de inicializa��o, se necess�rio
                 _buttonStyle.normal.background = MakeFrameTexture(16, 64, Theme.ButtonTop, Theme.ButtonBottom, Theme.AccentDim, 1);
                 _buttonStyle.hover.background = MakeFrameTexture(16, 64, Theme.ButtonHoverTop, Theme.ButtonHoverBottom, Theme.AccentHover, 1);
                 _buttonStyle.active.background = MakeFrameTexture(16, 64, Theme.ButtonActiveTop, Theme.ButtonActiveBottom, Theme.AccentActive, 1);
@@ -274,25 +256,24 @@ public static class GuiStyles
             {
                 _toggleStyle = new GUIStyle(GUI.skin.toggle)
                 {
-                    fontSize = 14, // Ajustado
-                    fontStyle = FontStyle.Normal, // Removido Bold para consist�ncia visual
+                    fontSize = 14,
+                    fontStyle = FontStyle.Normal,
                     alignment = TextAnchor.MiddleLeft,
-                    normal = { textColor = Theme.TextMuted, background = MakeTexture(new Color(0.09f, 0.09f, 0.11f, 0.95f)) }, // Fundo mais escuro
-                    onNormal = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.18f, 0.09f, 0.02f, 0.95f)) }, // Orange when on
-                    hover = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.11f, 0.11f, 0.14f, 0.95f)) }, // Fundo hover
-                    onHover = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.22f, 0.11f, 0.03f, 0.95f)) }, // Orange hover
-                    active = { textColor = Theme.TextMuted, background = MakeTexture(new Color(0.09f, 0.09f, 0.11f, 0.95f)) }, // Fundo ativo (ao clicar)
-                    onActive = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.25f, 0.13f, 0.04f, 0.95f)) }, // Orange active
-                    padding = CreateRectOffset(16, 16, 9, 9), // Better padding
-                    margin = CreateRectOffset(6, 6, 4, 4), // Better margin
-                    fixedHeight = 34, // Taller for fluid look
+                    normal = { textColor = Theme.TextMuted, background = MakeTexture(new Color(0.09f, 0.09f, 0.11f, 0.95f)) },
+                    onNormal = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.18f, 0.09f, 0.02f, 0.95f)) },
+                    hover = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.11f, 0.11f, 0.14f, 0.95f)) },
+                    onHover = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.22f, 0.11f, 0.03f, 0.95f)) },
+                    active = { textColor = Theme.TextMuted, background = MakeTexture(new Color(0.09f, 0.09f, 0.11f, 0.95f)) },
+                    onActive = { textColor = Theme.TextPrimary, background = MakeTexture(new Color(0.25f, 0.13f, 0.04f, 0.95f)) },
+                    padding = CreateRectOffset(16, 16, 9, 9),
+                    margin = CreateRectOffset(6, 6, 4, 4),
+                    fixedHeight = 34,
                     stretchWidth = true
                 };
                 _toggleStyle.richText = true;
             }
             else if (_toggleStyle.normal?.background == null || _toggleStyle.onNormal?.background == null || _toggleStyle.hover?.background == null || _toggleStyle.onHover?.background == null || _toggleStyle.active?.background == null || _toggleStyle.onActive?.background == null)
             {
-                // Recupera��o de falha de inicializa��o
                 _toggleStyle.normal.background = MakeTexture(new Color(0.09f, 0.09f, 0.11f, 0.95f));
                 _toggleStyle.onNormal.background = MakeTexture(new Color(0.12f, 0.03f, 0.06f, 0.95f));
                 _toggleStyle.hover.background = MakeTexture(new Color(0.11f, 0.11f, 0.14f, 0.95f));
@@ -304,105 +285,6 @@ public static class GuiStyles
         }
     }
 
-    public static GUIStyle SliderStyle
-    {
-        get
-        {
-            if (_sliderStyle == null)
-            {
-                _sliderStyle = new GUIStyle(GUI.skin.horizontalSlider)
-                {
-                    margin = CreateRectOffset(12, 12, 10, 10), // Ajustado e usando CreateRectOffset
-                    fixedHeight = 24 // Aumentado
-                };
-            }
-            return _sliderStyle;
-        }
-    }
-
-    public static GUIStyle LabelStyle
-    {
-        get
-        {
-            if (_labelStyle == null)
-            {
-                _labelStyle = new GUIStyle(GUI.skin.label)
-                {
-                    fontSize = 14,
-                    normal = { textColor = Theme.TextPrimary },
-                    padding = CreateRectOffset(10, 10, 6, 6), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(6, 6, 3, 5) // Ajustado e usando CreateRectOffset
-                };
-                _labelStyle.richText = true;
-            }
-            return _labelStyle;
-        }
-    }
-
-    public static GUIStyle TabStyle
-    {
-        get
-        {
-            if (_tabStyle == null)
-            {
-                _tabStyle = new GUIStyle(GUI.skin.button)
-                {
-                    fontSize = 13,
-                    padding = CreateRectOffset(10, 10, 5, 5), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(3, 3, 2, 2), // Ajustado e usando CreateRectOffset
-                    fixedHeight = 28, // Ajustado
-                    normal = { textColor = Theme.TextMuted } // Cor mais clara para abas inativas
-                };
-                _tabStyle.normal.background = MakeFrameTexture(16, 48, new Color(0.09f, 0.09f, 0.11f, 0.95f), new Color(0.07f, 0.07f, 0.09f, 0.95f), Theme.AccentDim, 1);
-                _tabStyle.hover.background = MakeFrameTexture(16, 48, new Color(0.11f, 0.11f, 0.14f, 0.95f), new Color(0.09f, 0.09f, 0.12f, 0.95f), Theme.AccentHover, 1);
-                _tabStyle.active.background = MakeFrameTexture(16, 48, new Color(0.12f, 0.03f, 0.06f, 0.95f), new Color(0.10f, 0.02f, 0.05f, 0.95f), Theme.AccentActive, 1);
-                _tabStyle.richText = true;
-            }
-            else if (_tabStyle.normal?.background == null || _tabStyle.hover?.background == null || _tabStyle.active?.background == null)
-            {
-                _tabStyle.normal.background = MakeFrameTexture(16, 48, new Color(0.09f, 0.09f, 0.11f, 0.95f), new Color(0.07f, 0.07f, 0.09f, 0.95f), Theme.AccentDim, 1);
-                _tabStyle.hover.background = MakeFrameTexture(16, 48, new Color(0.11f, 0.11f, 0.14f, 0.95f), new Color(0.09f, 0.09f, 0.12f, 0.95f), Theme.AccentHover, 1);
-                _tabStyle.active.background = MakeFrameTexture(16, 48, new Color(0.12f, 0.03f, 0.06f, 0.95f), new Color(0.10f, 0.02f, 0.05f, 0.95f), Theme.AccentActive, 1);
-            }
-            return _tabStyle;
-        }
-    }
-
-    public static GUIStyle SelectedTabStyle
-    {
-        get
-        {
-            if (_selectedTabStyle == null)
-            {
-                _selectedTabStyle = new GUIStyle(TabStyle)
-                {
-                    normal = { textColor = Theme.Accent } // Cor acentuada para a aba selecionada
-                };
-                _selectedTabStyle.normal.background = MakeFrameTexture(16, 48, new Color(0.13f, 0.04f, 0.08f, 0.95f), new Color(0.11f, 0.03f, 0.07f, 0.95f), Theme.Accent, 1); // Borda mais forte
-            }
-            return _selectedTabStyle;
-        }
-    }
-
-    public static GUIStyle ErrorStyle
-    {
-        get
-        {
-            if (_errorStyle == null)
-            {
-                _errorStyle = new GUIStyle(GUI.skin.label)
-                {
-                    fontSize = 14,
-                    normal = { textColor = Theme.Error },
-                    padding = CreateRectOffset(12, 12, 10, 10), // Ajustado e usando CreateRectOffset
-                    wordWrap = true
-                };
-                _errorStyle.richText = true;
-            }
-            return _errorStyle;
-        }
-    }
-
     public static GUIStyle ContainerStyle
     {
         get
@@ -411,37 +293,16 @@ public static class GuiStyles
             {
                 _containerStyle = new GUIStyle(GUI.skin.box)
                 {
-                    padding = CreateRectOffset(8, 8, 8, 8), // Reduzido de 12 para 8
-                    margin = CreateRectOffset(4, 4, 4, 4) // Reduzido de 8 para 4
+                    padding = CreateRectOffset(8, 8, 8, 8),
+                    margin = CreateRectOffset(4, 4, 4, 4)
                 };
-                _containerStyle.normal.background = MakeTexture(2, 2, new Color(0.07f, 0.07f, 0.09f, 0.80f)); // Fundo mais claro e com mais transpar�ncia
+                _containerStyle.normal.background = MakeTexture(2, 2, new Color(0.07f, 0.07f, 0.09f, 0.80f));
             }
             else if (_containerStyle.normal?.background == null)
             {
                 _containerStyle.normal.background = MakeTexture(2, 2, new Color(0.07f, 0.07f, 0.09f, 0.80f));
             }
             return _containerStyle;
-        }
-    }
-
-    public static GUIStyle SectionStyle
-    {
-        get
-        {
-            if (_sectionStyle == null)
-            {
-                _sectionStyle = new GUIStyle(GUI.skin.box)
-                {
-                    padding = CreateRectOffset(10, 10, 10, 10), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(4, 4, 6, 6) // Ajustado e usando CreateRectOffset
-                };
-                _sectionStyle.normal.background = MakeTexture(2, 2, Theme.BgSection); // Usa cor do tema
-            }
-            else if (_sectionStyle.normal?.background == null)
-            {
-                _sectionStyle.normal.background = MakeTexture(2, 2, Theme.BgSection);
-            }
-            return _sectionStyle;
         }
     }
 
@@ -453,10 +314,10 @@ public static class GuiStyles
             {
                 _iconStyle = new GUIStyle(GUI.skin.box)
                 {
-                    padding = CreateRectOffset(3, 3, 3, 3), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(3, 3, 3, 3), // Ajustado e usando CreateRectOffset
-                    fixedWidth = 28, // Ajustado
-                    fixedHeight = 28 // Ajustado
+                    padding = CreateRectOffset(3, 3, 3, 3),
+                    margin = CreateRectOffset(3, 3, 3, 3),
+                    fixedWidth = 28,
+                    fixedHeight = 28
                 };
                 _iconStyle.normal.background = MakeFrameTexture(8, 8, new Color(0.11f, 0.11f, 0.13f, 0.95f), new Color(0.09f, 0.09f, 0.11f, 0.95f), Theme.AccentDim, 1);
             }
@@ -468,95 +329,6 @@ public static class GuiStyles
         }
     }
 
-    public static GUIStyle TooltipStyle
-    {
-        get
-        {
-            if (_tooltipStyle == null)
-            {
-                _tooltipStyle = new GUIStyle(GUI.skin.box)
-                {
-                    fontSize = 12,
-                    normal = { textColor = Theme.TextPrimary, background = MakeFrameTexture(16, 48, new Color(0.07f, 0.07f, 0.09f, 0.98f), new Color(0.05f, 0.05f, 0.07f, 0.98f), Theme.Accent, 1) }, // Fundo mais opaco e com borda acentuada
-                    padding = CreateRectOffset(8, 8, 8, 8), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(6, 6, 6, 6), // Ajustado e usando CreateRectOffset
-                    wordWrap = true
-                };
-                _tooltipStyle.richText = true;
-            }
-            else if (_tooltipStyle.normal?.background == null)
-            {
-                _tooltipStyle.normal.background = MakeFrameTexture(16, 48, new Color(0.07f, 0.07f, 0.09f, 0.98f), new Color(0.05f, 0.05f, 0.07f, 0.98f), Theme.Accent, 1);
-            }
-            return _tooltipStyle;
-        }
-    }
-
-    public static GUIStyle StatusIndicatorStyle
-    {
-        get
-        {
-            if (_statusIndicatorStyle == null)
-            {
-                _statusIndicatorStyle = new GUIStyle(GUI.skin.box)
-                {
-                    fixedWidth = 12, // Ajustado
-                    fixedHeight = 12, // Ajustado
-                    margin = CreateRectOffset(6, 6, 4, 4) // Ajustado e usando CreateRectOffset
-                };
-            }
-            return _statusIndicatorStyle;
-        }
-    }
-
-    public static GUIStyle GlowStyle
-    {
-        get
-        {
-            if (_glowStyle == null)
-            {
-                _glowStyle = new GUIStyle(GUI.skin.box)
-                {
-                    normal = { background = MakeTexture(2, 2, new Color(1f, 0f, 0.2f, 0.15f)) }, // Ajustado alpha
-                    margin = CreateRectOffset(3, 3, 3, 3) // Ajustado e usando CreateRectOffset
-                };
-            }
-            return _glowStyle;
-        }
-    }
-
-    public static GUIStyle ShadowStyle
-    {
-        get
-        {
-            if (_shadowStyle == null)
-            {
-                _shadowStyle = new GUIStyle(GUI.skin.box)
-                {
-                    normal = { background = MakeTexture(2, 2, new Color(0f, 0f, 0f, 0.6f)) }, // Ajustado alpha
-                    margin = CreateRectOffset(3, 3, 3, 3) // Ajustado e usando CreateRectOffset
-                };
-            }
-            return _shadowStyle;
-        }
-    }
-
-    public static GUIStyle HighlightStyle
-    {
-        get
-        {
-            if (_highlightStyle == null)
-            {
-                _highlightStyle = new GUIStyle(GUI.skin.box)
-                {
-                    normal = { background = MakeTexture(2, 2, new Color(1f, 1f, 1f, 0.12f)) }, // Ajustado alpha
-                    margin = CreateRectOffset(3, 3, 3, 3) // Ajustado e usando CreateRectOffset
-                };
-            }
-            return _highlightStyle;
-        }
-    }
-
     public static GUIStyle SeparatorStyle
     {
         get
@@ -565,9 +337,9 @@ public static class GuiStyles
             {
                 _separatorStyle = new GUIStyle(GUI.skin.box)
                 {
-                    normal = { background = MakeTexture(1, 1, Theme.Accent) }, // Usa cor do tema
-                    margin = CreateRectOffset(8, 8, 6, 6), // Ajustado e usando CreateRectOffset
-                    fixedHeight = 2 // Ajustado
+                    normal = { background = MakeTexture(1, 1, Theme.Accent) },
+                    margin = CreateRectOffset(8, 8, 6, 6),
+                    fixedHeight = 2
                 };
             }
             return _separatorStyle;
@@ -582,18 +354,18 @@ public static class GuiStyles
             {
                 _betterToggleStyle = new GUIStyle(GUI.skin.toggle)
                 {
-                    fontSize = 15, // Ajustado
-                    fontStyle = FontStyle.Normal, // Removido Bold
+                    fontSize = 15,
+                    fontStyle = FontStyle.Normal,
                     alignment = TextAnchor.MiddleLeft,
-                    padding = CreateRectOffset(18, 18, 11, 11), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(10, 10, 8, 8), // Ajustado e usando CreateRectOffset
-                    fixedHeight = 40, // Ajustado
+                    padding = CreateRectOffset(18, 18, 11, 11),
+                    margin = CreateRectOffset(10, 10, 8, 8),
+                    fixedHeight = 40,
                     stretchWidth = true
                 };
                 _betterToggleStyle.normal.background = MakeFrameTexture(16, 64, new Color(0.10f, 0.10f, 0.12f, 0.95f), new Color(0.08f, 0.08f, 0.10f, 0.95f), Theme.AccentDim, 1);
-                _betterToggleStyle.onNormal.background = MakeFrameTexture(16, 64, new Color(0.15f, 0.03f, 0.07f, 0.95f), new Color(0.12f, 0.02f, 0.05f, 0.95f), Theme.Accent, 1); // Fundo mais escuro, borda acentuada
-                _betterToggleStyle.normal.textColor = Theme.TextMuted; // Cor mais clara quando desligado
-                _betterToggleStyle.onNormal.textColor = Theme.TextPrimary; // Cor principal quando ligado
+                _betterToggleStyle.onNormal.background = MakeFrameTexture(16, 64, new Color(0.15f, 0.03f, 0.07f, 0.95f), new Color(0.12f, 0.02f, 0.05f, 0.95f), Theme.Accent, 1);
+                _betterToggleStyle.normal.textColor = Theme.TextMuted;
+                _betterToggleStyle.onNormal.textColor = Theme.TextPrimary;
                 _betterToggleStyle.hover.background = MakeFrameTexture(16, 64, new Color(0.12f, 0.12f, 0.15f, 0.95f), new Color(0.10f, 0.10f, 0.13f, 0.95f), Theme.AccentHover, 1);
                 _betterToggleStyle.onHover.background = MakeFrameTexture(16, 64, new Color(0.17f, 0.04f, 0.09f, 0.95f), new Color(0.14f, 0.03f, 0.07f, 0.95f), Theme.AccentHover, 1);
                 _betterToggleStyle.active.background = MakeFrameTexture(16, 64, new Color(0.11f, 0.11f, 0.13f, 0.95f), new Color(0.09f, 0.09f, 0.11f, 0.95f), Theme.AccentActive, 1);
@@ -613,11 +385,11 @@ public static class GuiStyles
             {
                 _windowStyle = new GUIStyle(GUI.skin.box)
                 {
-                    padding = CreateRectOffset(10, 10, 10, 10), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(2, 2, 2, 2) // Ajustado e usando CreateRectOffset
+                    padding = CreateRectOffset(10, 10, 10, 10),
+                    margin = CreateRectOffset(2, 2, 2, 2)
                 };
-                var top = new Color(Theme.BgDarkA.r, Theme.BgDarkA.g, Theme.BgDarkA.b, 0.80f); // Ajustado alpha
-                var bottom = new Color(Theme.BgDarkB.r, Theme.BgDarkB.g, Theme.BgDarkB.b, 0.80f); // Ajustado alpha
+                var top = new Color(Theme.BgDarkA.r, Theme.BgDarkA.g, Theme.BgDarkA.b, 0.80f);
+                var bottom = new Color(Theme.BgDarkB.r, Theme.BgDarkB.g, Theme.BgDarkB.b, 0.80f);
                 _windowStyle.normal.background = MakeVerticalGradientTexture(2, 128, top, bottom);
             }
             else if (_windowStyle.normal?.background == null)
@@ -638,11 +410,11 @@ public static class GuiStyles
             {
                 _headerBackgroundStyle = new GUIStyle(GUI.skin.box)
                 {
-                    padding = CreateRectOffset(0, 0, 0, 0), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(0, 0, 0, 0) // Ajustado e usando CreateRectOffset
+                    padding = CreateRectOffset(0, 0, 0, 0),
+                    margin = CreateRectOffset(0, 0, 0, 0)
                 };
-                var hTop = new Color(Theme.HeaderTop.r, Theme.HeaderTop.g, Theme.HeaderTop.b, 0.80f); // Ajustado alpha
-                var hBottom = new Color(Theme.HeaderBottom.r, Theme.HeaderBottom.g, Theme.HeaderBottom.b, 0.80f); // Ajustado alpha
+                var hTop = new Color(Theme.HeaderTop.r, Theme.HeaderTop.g, Theme.HeaderTop.b, 0.80f);
+                var hBottom = new Color(Theme.HeaderBottom.r, Theme.HeaderBottom.g, Theme.HeaderBottom.b, 0.80f);
                 _headerBackgroundStyle.normal.background = MakeVerticalGradientTexture(2, 32, hTop, hBottom);
             }
             else if (_headerBackgroundStyle.normal?.background == null)
@@ -663,10 +435,10 @@ public static class GuiStyles
             {
                 _titleLabelStyle = new GUIStyle(GUI.skin.label)
                 {
-                    fontSize = 15, // Ajustado
+                    fontSize = 15,
                     fontStyle = FontStyle.Bold,
                     alignment = TextAnchor.MiddleCenter,
-                    normal = { textColor = Theme.TextPrimary } // Mantido branco
+                    normal = { textColor = Theme.TextPrimary }
                 };
             }
             return _titleLabelStyle;
@@ -681,12 +453,12 @@ public static class GuiStyles
             {
                 _titleBarButtonStyle = new GUIStyle(GUI.skin.button)
                 {
-                    fontSize = 13, // Ajustado
+                    fontSize = 13,
                     alignment = TextAnchor.MiddleCenter,
-                    padding = CreateRectOffset(2, 2, 2, 2), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(4, 4, 4, 4), // Ajustado e usando CreateRectOffset
-                    fixedWidth = 24, // Ajustado
-                    fixedHeight = 20 // Ajustado
+                    padding = CreateRectOffset(2, 2, 2, 2),
+                    margin = CreateRectOffset(4, 4, 4, 4),
+                    fixedWidth = 24,
+                    fixedHeight = 20
                 };
                 _titleBarButtonStyle.normal.textColor = Theme.TextPrimary;
                 _titleBarButtonStyle.normal.background = MakeFrameTexture(8, 32, new Color(0.13f, 0.13f, 0.15f, 0.95f), new Color(0.11f, 0.11f, 0.13f, 0.95f), Theme.AccentDim, 1);
@@ -713,9 +485,7 @@ public static class GuiStyles
                 {
                     fontSize = 14,
                     alignment = TextAnchor.MiddleLeft,
-                    padding = CreateRectOffset(10, 10, 8, 8), // Ajustado e usando CreateRectOffset
-                    margin = CreateRectOffset(6, 6, 6, 8) // Ajustado e usando CreateRectOffset
-                };
+                    padding = CreateRectOffset(10, 10, 8, 8),                     margin = CreateRectOffset(6, 6, 6, 8)                 };
                 _textFieldStyle.normal.textColor = Theme.TextPrimary;
                 _textFieldStyle.normal.background = MakeFrameTexture(16, 48, new Color(0.08f, 0.08f, 0.10f, 0.95f), new Color(0.06f, 0.06f, 0.08f, 0.95f), Theme.AccentDim, 1);
                 _textFieldStyle.hover.background = MakeFrameTexture(16, 48, new Color(0.10f, 0.10f, 0.12f, 0.95f), new Color(0.08f, 0.08f, 0.10f, 0.95f), Theme.AccentHover, 1);
@@ -733,13 +503,15 @@ public static class GuiStyles
     }
     #endregion
 
-    #region Fun��es P�blicas de Utilidade
+    #region Public Utility Functions
+
     /// <summary>
-    /// Garante que todos os estilos sejam inicializados. Chamado uma vez, idealmente na inicializa��o do mod.
+    /// Forces all lazy-initialized styles to be created.
+    /// Call this once early (e.g., in DragWindow.OnGUI or TabControl.Draw) to avoid
+    /// first-frame lag when styles are accessed for the first time.
     /// </summary>
     public static void EnsureInitialized()
     {
-        // Acessa cada estilo uma vez para for�ar a inicializa��o pregui�osa.
         _ = WindowStyle;
         _ = HeaderBackgroundStyle;
         _ = TitleLabelStyle;
@@ -767,39 +539,56 @@ public static class GuiStyles
     }
 
     /// <summary>
-    /// Desenha um tooltip na posi��o do mouse se o ret�ngulo fornecido cont�m o mouse.
+    /// Draws a tooltip at the mouse position if the given rect is hovered.
+    /// 
+    /// <b>USAGE:</b>
+    /// <code>
+    /// if (GUILayout.Button("My Button", GuiStyles.ButtonStyle)) { ... }
+    /// GuiStyles.DrawTooltip("What this button does", GUILayoutUtility.GetLastRect());
+    /// </code>
     /// </summary>
     public static void DrawTooltip(string tooltip, Rect rect)
     {
         if (!string.IsNullOrEmpty(tooltip) && rect.Contains(Event.current.mousePosition))
         {
             Vector2 size = GUI.skin.box.CalcSize(new GUIContent(tooltip));
-            Rect tooltipRect = new Rect(Event.current.mousePosition.x + 15, Event.current.mousePosition.y, size.x + 16, size.y + 12); // Ajustado offset e padding
+            Rect tooltipRect = new Rect(Event.current.mousePosition.x + 15, Event.current.mousePosition.y, size.x + 16, size.y + 12);
             GUI.Label(tooltipRect, tooltip, TooltipStyle);
         }
     }
 
     /// <summary>
-    /// Desenha um indicador de status (c�rculo colorido).
+    /// Draws a small colored circle indicator (green = active, red = inactive).
+    /// Place it next to a toggle to give visual feedback.
+    /// 
+    /// <b>USAGE:</b>
+    /// <code>
+    /// GUILayout.BeginHorizontal();
+    /// myToggle = GuiStyles.DrawBetterToggle(myToggle, "My Feature", "Tooltip text");
+    /// GuiStyles.DrawStatusIndicator(myToggle);
+    /// GUILayout.EndHorizontal();
+    /// </code>
     /// </summary>
     public static void DrawStatusIndicator(bool isActive)
     {
-        Color color = isActive ? Theme.Success : Theme.Error; // Usa cores do tema
+        Color color = isActive ? Theme.Success : Theme.Error;
         GUIStyle style = new GUIStyle(StatusIndicatorStyle);
         style.normal.background = MakeTexture(1, 1, color);
         GUILayout.Box(GUIContent.none, style);
     }
 
     /// <summary>
-    /// Desenha um separador horizontal.
+    /// Draws a horizontal accent-colored separator line.
+    /// Use between sections or groups of controls for visual separation.
     /// </summary>
     public static void DrawSeparator()
     {
-        GUILayout.Box(GUIContent.none, SeparatorStyle, GUILayout.ExpandWidth(true), GUILayout.Height(2)); // Ajustado altura
+        GUILayout.Box(GUIContent.none, SeparatorStyle, GUILayout.ExpandWidth(true), GUILayout.Height(2));
     }
 
     /// <summary>
-    /// Desenha um bot�o de aba estilizado.
+    /// Draws a styled tab button. Returns true if the tab is selected.
+    /// Prefer using <see cref="TabControl"/> instead of calling this directly.
     /// </summary>
     public static bool DrawTab(string label, bool selected)
     {
@@ -807,7 +596,13 @@ public static class GuiStyles
     }
 
     /// <summary>
-    /// Desenha um toggle com tooltip opcional.
+    /// Draws a large styled toggle with an optional hover tooltip.
+    /// This is the recommended way to create toggle controls in the menu.
+    /// 
+    /// <b>USAGE:</b>
+    /// <code>
+    /// myFeature = GuiStyles.DrawBetterToggle(myFeature, "My Feature", "Description of what this does");
+    /// </code>
     /// </summary>
     public static bool DrawBetterToggle(bool value, string label, string tooltip = null)
     {
@@ -818,27 +613,24 @@ public static class GuiStyles
         return result;
     }
 
-    /// <summary>
-    /// Gera o texto do cabe�alho com o sufixo de hora atual.
-    /// </summary>
+    /// <summary>Appends the current time (HH:mm:ss) to a header text string.</summary>
     public static string GetHeaderText(string text)
     {
         return $"{text} - {DateTime.Now:HH:mm:ss}";
     }
 
     /// <summary>
-    /// Retorna um estilo de cabe�alho com cor animada (varia��o do acento).
+    /// Returns a copy of HeaderStyle with an animated accent color (ping-pong lerp).
+    /// Useful for drawing attention to important headers.
     /// </summary>
     public static GUIStyle GetAnimatedHeaderStyle()
     {
         var style = new GUIStyle(HeaderStyle);
-        style.normal.textColor = Color.Lerp(Theme.Accent, Theme.AccentSoft, Mathf.PingPong(Time.time * 2f, 1f)); // Anima��o de cor
+        style.normal.textColor = Color.Lerp(Theme.Accent, Theme.AccentSoft, Mathf.PingPong(Time.time * 2f, 1f));
         return style;
     }
 
-    /// <summary>
-    /// Retorna a hora atual formatada.
-    /// </summary>
+    /// <summary>Returns the current time formatted as HH:mm:ss.</summary>
     public static string GetCurrentTime()
     {
         return DateTime.Now.ToString("HH:mm:ss");

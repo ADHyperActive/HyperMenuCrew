@@ -4,38 +4,54 @@ using ModMenuCrew.UI.Styles;
 
 namespace ModMenuCrew
 {
+    /// <summary>
+    /// A draggable, minimizable IMGUI window with scrollable content, a title bar,
+    /// minimize/close buttons, and a "SHOWCASE" badge.
+    /// 
+    /// <b>USAGE:</b>
+    /// <code>
+    /// var window = new DragWindow(new Rect(24, 24, 500, 0), "My Window", DrawContent);
+    /// window.Enabled = true;
+    /// 
+    /// // In OnGUI:
+    /// if (window.Enabled) window.OnGUI();
+    /// </code>
+    /// </summary>
     public class DragWindow
     {
-        // --- Constantes ---
+        // --- Constants ---
         private const float MinWindowWidth = 200f;
-        private const float MinWindowHeight = 100f; // Inclui HeaderHeight
-        private const float MaxWindowHeight = 600f; // Inclui HeaderHeight
-        private const float ContentPadding = 4f; // Espaçamento reduzido (era 8f) para subir o conteúdo
+        private const float MinWindowHeight = 100f;
+        private const float MaxWindowHeight = 600f;
+        private const float ContentPadding = 4f;
 
-        // --- Estados e Dados ---
+        // --- State ---
         private Rect _windowRect;
         private readonly Action _onGuiContent;
-        // MANTIDO conforme solicitado
         private bool _isDragging;
         private Vector2 _dragOffset;
         private bool _isMinimized;
         private bool _heightInitialized;
         private Vector2 _scrollPosition;
-        // MANTIDO conforme solicitado, com valores padrão e clamping
-        private float _minViewportHeight = 180f; // Altura mínima da área de conteúdo rolável (excluindo cabeçalho)
+        private float _minViewportHeight = 180f;
 
-        // --- Propriedades Públicas ---
+        // --- Public Properties ---
         public bool Enabled { get; set; }
         public string Title { get; set; }
 
-        // --- Cache de Retângulos (Opcional, para evitar alocações em OnGUI se necessário) ---
+        // --- Rect cache ---
         private Rect _cachedHeaderRect;
         private Rect _cachedContentRect;
         private Rect _cachedButtonArea;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DragWindow"/> class.
+        /// </summary>
+        /// <param name="initialRect">The initial rectangle of the window.</param>
+        /// <param name="title">The title of the window.</param>
+        /// <param name="onGuiContent">The action to invoke when drawing the window's content.</param>
         public DragWindow(Rect initialRect, string title, Action onGuiContent)
         {
-            // Aplica clamping inicial para garantir valores válidos
             _windowRect = new Rect(
                 initialRect.x,
                 initialRect.y,
@@ -46,14 +62,14 @@ namespace ModMenuCrew
             _onGuiContent = onGuiContent ?? (() => { });
         }
 
+        /// <summary>
+        /// Draws the window's GUI.
+        /// </summary>
         public void OnGUI()
         {
             if (!Enabled) return;
-
-            // Garante que os estilos estejam inicializados
             GuiStyles.EnsureInitialized();
 
-            // Inicializa altura padrão se necessário
             if (!_heightInitialized)
             {
                 float defaultHeight = Mathf.Min(Screen.height * 0.5f, 360f);
@@ -61,34 +77,30 @@ namespace ModMenuCrew
                 _heightInitialized = true;
             }
 
-            // Aplica clamping de tamanho a cada frame
             _windowRect.width = Mathf.Max(_windowRect.width, MinWindowWidth);
             _windowRect.height = Mathf.Clamp(_windowRect.height, MinWindowHeight, MaxWindowHeight);
 
-            // 1. Fundo da janela
             GUI.Box(_windowRect, GUIContent.none, GuiStyles.WindowStyle);
 
-            // 2. Cabeçalho
-            float headerHeight = GuiStyles.TitleBarButtonStyle.fixedHeight + 4; // Altura do botão + margem
+            float headerHeight = GuiStyles.TitleBarButtonStyle.fixedHeight + 4;
             _cachedHeaderRect = new Rect(_windowRect.x, _windowRect.y, _windowRect.width, headerHeight);
             GUI.Box(_cachedHeaderRect, GUIContent.none, GuiStyles.HeaderBackgroundStyle);
 
-            // Botões de controle da janela (Minimizar, Fechar)
             float buttonWidth = GuiStyles.TitleBarButtonStyle.fixedWidth;
             float buttonHeight = GuiStyles.TitleBarButtonStyle.fixedHeight;
             float buttonMargin = GuiStyles.TitleBarButtonStyle.margin.left + GuiStyles.TitleBarButtonStyle.margin.right;
-            float totalButtonWidth = (2 * buttonWidth) + (2 * buttonMargin); // Min e Close
+            float totalButtonWidth = (2 * buttonWidth) + (2 * buttonMargin);
 
             _cachedButtonArea = new Rect(
-                _windowRect.x + _windowRect.width - totalButtonWidth - 4, // Pequena margem direita
-                _windowRect.y + 2, // Pequena margem superior
+                _windowRect.x + _windowRect.width - totalButtonWidth - 4,
+                _windowRect.y + 2,
                 totalButtonWidth,
-                headerHeight - 4  // Altura menos margem superior/inferior
+                headerHeight - 4
             );
 
             GUILayout.BeginArea(_cachedButtonArea);
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button(_isMinimized ? "▭" : "—", GuiStyles.TitleBarButtonStyle)) // Usando símbolos mais comuns
+            if (GUILayout.Button(_isMinimized ? "▭" : "—", GuiStyles.TitleBarButtonStyle))
             {
                 _isMinimized = !_isMinimized;
             }
@@ -97,22 +109,19 @@ namespace ModMenuCrew
                 Enabled = false;
                 GUILayout.EndHorizontal();
                 GUILayout.EndArea();
-                return; // Sai imediatamente após fechar
+                return;
             }
             GUILayout.EndHorizontal();
             GUILayout.EndArea();
 
-            // Título centralizado no cabeçalho
-            // Calcula retângulo para o título, excluindo a área dos botões
             var titleRect = new Rect(
-                _cachedHeaderRect.x + 4, // Margem esquerda
+                _cachedHeaderRect.x + 4,
                 _cachedHeaderRect.y,
-                _cachedButtonArea.x - _cachedHeaderRect.x - 80, // Reduzido para caber o badge
+                _cachedButtonArea.x - _cachedHeaderRect.x - 80,
                 _cachedHeaderRect.height
             );
             GUI.Label(titleRect, Title, GuiStyles.TitleLabelStyle);
 
-            // === SHOWCASE BADGE ===
             var badgeRect = new Rect(
                 titleRect.xMax + 4,
                 _cachedHeaderRect.y + 2,
@@ -124,10 +133,8 @@ namespace ModMenuCrew
             GUI.Box(badgeRect, "SHOWCASE", GuiStyles.TitleBarButtonStyle);
             GUI.backgroundColor = oldBgColor;
 
-            // 3. Conteúdo da janela (se não estiver minimizado)
             if (!_isMinimized)
             {
-                // Calcula a área do conteúdo
                 _cachedContentRect = new Rect(
                     _windowRect.x + ContentPadding,
                     _windowRect.y + headerHeight + ContentPadding,
@@ -137,50 +144,66 @@ namespace ModMenuCrew
 
                 GUILayout.BeginArea(_cachedContentRect);
 
-                // Inicia ScrollView com altura calculada
                 float maxViewportHeight = MaxWindowHeight - headerHeight - (2 * ContentPadding);
                 float currentViewportHeight = Mathf.Clamp(
                     _windowRect.height - headerHeight - (2 * ContentPadding),
-                    _minViewportHeight, // Usa o valor configurável
+                    _minViewportHeight,
                     maxViewportHeight
                 );
 
                 _scrollPosition = GUILayout.BeginScrollView(_scrollPosition, false, true, GUILayout.Height(currentViewportHeight));
-                _onGuiContent?.Invoke(); // Invoca o conteúdo passado no construtor
+                _onGuiContent?.Invoke();
                 GUILayout.EndScrollView();
 
                 GUILayout.EndArea();
             }
 
-            // 4. Lida com o arrasto
             HandleDragging(_cachedHeaderRect);
 
-            // 5. Mantém a janela dentro da tela
             ClampToScreen();
         }
 
+        /// <summary>
+        /// Gets the rectangle of the window.
+        /// </summary>
+        /// <returns>The rectangle of the window.</returns>
         public Rect GetRect() => _windowRect;
 
+        /// <summary>
+        /// Sets the size of the window.
+        /// </summary>
+        /// <param name="width">The width of the window.</param>
+        /// <param name="height">The height of the window.</param>
         public void SetSize(float width, float height)
         {
             _windowRect.width = Mathf.Max(width, MinWindowWidth);
             _windowRect.height = Mathf.Clamp(height, MinWindowHeight, MaxWindowHeight);
         }
 
+        /// <summary>
+        /// Sets the position of the window.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the window.</param>
+        /// <param name="y">The y-coordinate of the window.</param>
         public void SetPosition(float x, float y)
         {
             _windowRect.x = x;
             _windowRect.y = y;
         }
 
-        // MANTIDO conforme solicitado
+        /// <summary>
+        /// Sets the minimum height of the scrollable content viewport.
+        /// </summary>
+        /// <param name="minHeight">The minimum height of the viewport.</param>
         public void SetViewportMinHeight(float minHeight)
         {
-            // Aplica clamping ao valor recebido para manter consistência
-            _minViewportHeight = Mathf.Clamp(minHeight, 60f, 400f); // Exemplo de limites internos
+            _minViewportHeight = Mathf.Clamp(minHeight, 60f, 400f);
         }
 
-        // MANTIDO conforme solicitado, com lógica ajustada para usar campos de classe
+        /// <summary>
+        /// Handles the dragging of the window.
+        /// </summary>
+        /// <param name="dragArea">The area of the window that can be dragged.</param>
         private void HandleDragging(Rect dragArea)
         {
             Event e = Event.current;

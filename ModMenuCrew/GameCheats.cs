@@ -12,7 +12,13 @@ using UnityEngine;
 namespace ModMenuCrew.Features
 {
     /// <summary>
-    /// Simplified GameCheats for Showcase Version
+    /// Static utility class containing all cheat implementations.
+    /// Each region groups related cheats: meetings, tasks, movement, and visual.
+    /// 
+    /// <b>HOW TO ADD A NEW CHEAT:</b>
+    /// 1. Create a public static method in the appropriate region.
+    /// 2. Call it from a button in CheatManager.DrawGeneralCheatsSection().
+    /// 3. Use LogCheat() for console output.
     /// </summary>
     public static class GameCheats
     {
@@ -22,9 +28,9 @@ namespace ModMenuCrew.Features
 
         private static void LogCheat(string message) => Debug.Log($"[Cheat] {message}");
 
-        #region Cheats de Reunião
+        #region Meeting Cheats
         /// <summary>
-        /// Fecha a reunião atual ou tela de exílio, restaurando a jogabilidade.
+        /// Closes the current meeting or exile screen and restores gameplay.
         /// </summary>
         public static void CloseMeeting()
         {
@@ -40,13 +46,13 @@ namespace ModMenuCrew.Features
                     ShipStatus.Instance.EmergencyCooldown = GameManager.Instance.LogicOptions.GetEmergencyCooldown();
                     Camera.main.GetComponent<FollowerCamera>().Locked = false;
                     DestroyableSingleton<HudManager>.Instance.SetHudActive(true);
-                    LogCheat("Reunião fechada com sucesso.");
+                    LogCheat("Meeting closed successfully.");
                 }
                 else if (ExileController.Instance != null)
                 {
                     ExileController.Instance.ReEnableGameplay();
                     ExileController.Instance.WrapUp();
-                    LogCheat("Exílio encerrado.");
+                    LogCheat("Exile ended.");
                 }
             }
             catch (Exception e)
@@ -56,20 +62,20 @@ namespace ModMenuCrew.Features
         }
         #endregion
 
-        #region Cheats de Tarefas
+        #region Task Cheats
         /// <summary>
-        /// Completa todas as tarefas do jogador local.
+        /// Completes all tasks for the local player.
         /// </summary>
         public static void CompleteAllTasks()
         {
             if (PlayerControl.LocalPlayer == null || PlayerControl.LocalPlayer.Data == null)
             {
-                Debug.LogWarning("Jogador local não encontrado.");
+                Debug.LogWarning("[GameCheats] Local player not found.");
                 return;
             }
             if (AmongUsClient.Instance == null)
             {
-                Debug.LogWarning("AmongUsClient não inicializado.");
+                Debug.LogWarning("[GameCheats] AmongUsClient not initialized.");
                 return;
             }
             try
@@ -77,19 +83,19 @@ namespace ModMenuCrew.Features
                 var taskList = PlayerControl.LocalPlayer.Data.Tasks;
                 if (taskList == null || taskList.Count == 0)
                 {
-                    Debug.LogWarning("Nenhuma tarefa encontrada para completar.");
+                    Debug.LogWarning("[GameCheats] No tasks found to complete.");
                     return;
                 }
                 HudManager.Instance.StartCoroutine(CompleteAllTasksWithDelay(0.2f).WrapToIl2Cpp());
             }
             catch (Exception e)
             {
-                Debug.LogError($"Erro ao completar tarefas: {e}");
+                Debug.LogError($"[GameCheats] Error completing tasks: {e}");
             }
         }
 
         /// <summary>
-        /// Completa todas as tarefas com um pequeno delay entre cada conclusão.
+        /// Completes all tasks with a small delay between each completion to avoid detection.
         /// </summary>
         public static IEnumerator CompleteAllTasksWithDelay(float perTaskDelay = 0.2f)
         {
@@ -126,7 +132,7 @@ namespace ModMenuCrew.Features
                 AmongUsClient.Instance.FinishRpcImmediately(writer);
 
                 try { ((dynamic)match).Complete = true; } catch { }
-                LogCheat($"Tarefa {id} completada. (Host: {isHost})");
+                LogCheat($"Task {id} completed. (Host: {isHost})");
 
                 yield return new WaitForSeconds(Mathf.Max(0.05f, perTaskDelay));
             }
@@ -149,19 +155,20 @@ namespace ModMenuCrew.Features
             }
 
             PlayerControl.LocalPlayer.Data.MarkDirty();
-            LogCheat("Todas as tarefas completadas.");
+            LogCheat("All tasks completed.");
         }
         #endregion
 
-        #region Cheats de Movimento
+        #region Movement Cheats
         /// <summary>
-        /// Teletransporta o jogador para a posição do cursor.
+        /// Teleports the local player to the mouse cursor position.
+        /// Sends an RPC to sync the position with other clients.
         /// </summary>
         public static void TeleportToCursor()
         {
             if (PlayerControl.LocalPlayer == null || PlayerControl.LocalPlayer.NetTransform == null || Camera.main == null)
             {
-                Debug.LogWarning("Jogador local ou câmera não encontrada.");
+                Debug.LogWarning("[GameCheats] Local player or camera not found.");
                 return;
             }
             try
@@ -171,7 +178,7 @@ namespace ModMenuCrew.Features
                 if (!Physics2D.OverlapPoint(worldPos, Constants.ShipAndAllObjectsMask))
                 {
                     PlayerControl.LocalPlayer.NetTransform.SnapTo(worldPos);
-                    LogCheat($"Teleportado localmente para {worldPos}.");
+                    LogCheat($"Teleported to {worldPos}.");
 
                     MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(
                         PlayerControl.LocalPlayer.NetId, (byte)RpcCalls.SnapTo, SendOption.Reliable, -1);
@@ -187,7 +194,8 @@ namespace ModMenuCrew.Features
         }
 
         /// <summary>
-        /// Verifica o input do mouse para teleporte quando habilitado.
+        /// Checks for right-click input to trigger cursor teleport when enabled.
+        /// Called every frame from DebuggerComponent.Update().
         /// </summary>
         public static void CheckTeleportInput()
         {
@@ -198,9 +206,9 @@ namespace ModMenuCrew.Features
         }
         #endregion
 
-        #region Cheats Visuais
+        #region Visual Cheats
         /// <summary>
-        /// Revela impostores marcando seus nomes com a cor da role.
+        /// Reveals all impostors by coloring their names red and showing their role.
         /// </summary>
         public static void RevealImpostors()
         {
@@ -219,30 +227,30 @@ namespace ModMenuCrew.Features
                     player.cosmetics.nameText.text = display;
                 }
             }
-            LogCheat("Impostores revelados.");
+            LogCheat("Impostors revealed.");
         }
 
         /// <summary>
-        /// Amplia o campo de visão do jogador.
+        /// Increases the player's field of view by adjusting the camera orthographic size.
         /// </summary>
         public static void IncreaseVision(float multiplier)
         {
             if (Camera.main != null)
             {
                 Camera.main.orthographicSize = 3.0f * multiplier;
-                LogCheat($"Visão ampliada para {multiplier}x.");
+                LogCheat($"Vision set to {multiplier}x.");
             }
         }
 
         /// <summary>
-        /// Restaura a visão padrão.
+        /// Resets vision to the default 3.0 orthographic size.
         /// </summary>
         public static void ResetVision()
         {
             if (Camera.main != null)
             {
                 Camera.main.orthographicSize = 3.0f;
-                LogCheat("Visão restaurada ao padrão.");
+                LogCheat("Vision reset to default.");
             }
         }
         #endregion

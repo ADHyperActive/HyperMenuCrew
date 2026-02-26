@@ -9,6 +9,17 @@ using DateTime = Il2CppSystem.DateTime;
 
 namespace ModMenuCrew.Patches
 {
+    /// <summary>
+    /// Harmony patch that unlocks ALL cosmetics (skins, hats, pets, visors, nameplates, bundles)
+    /// when HatManager initializes. Uses reflection to set items as free and mark them as purchased.
+    /// 
+    /// <b>HOW IT WORKS:</b>
+    /// 1. Patches HatManager.Initialize (runs once when the game loads cosmetics).
+    /// 2. Iterates through every cosmetic category and sets "Free" = true via reflection.
+    /// 3. Registers each item as "purchased" in the player's save data.
+    /// 4. Validates bundles to skip any with invalid/missing pets.
+    /// 5. Resets store view dates to suppress "new item" notifications.
+    /// </summary>
     [HarmonyPatch(typeof(HatManager), nameof(HatManager.Initialize))]
     public static class CosmeticsUnlockPatch
     {
@@ -127,15 +138,15 @@ namespace ModMenuCrew.Patches
             {
                 if (item == null) continue;
 
-                // Define como grátis
+                // Mark as free
                 TrySetPropertyOrField(item, true, "Free");
 
-                // Registra compra
+                // Register as purchased
                 var productId = GetStringPropertyOrFieldOrDefault(item, null, "ProductId", "productId");
                 if (!string.IsNullOrEmpty(productId))
                 {
                     try { purchasesData?.SetPurchased(productId); }
-                    catch { /* Ignora erros de compra duplicada */ }
+                    catch { /* Ignore duplicate purchase errors */ }
                 }
             }
         }
@@ -155,7 +166,7 @@ namespace ModMenuCrew.Patches
                 
                 var purchasesData = playerData.Purchases;
 
-                // Otimização: Converter para array apenas uma vez e evitar múltiplas alocações LINQ
+                // Convert to arrays once to avoid repeated LINQ allocations
                 var pets = manager.allPets?.ToArray() ?? Array.Empty<PetData>();
                 var hats = manager.allHats?.ToArray() ?? Array.Empty<HatData>();
                 var skins = manager.allSkins?.ToArray() ?? Array.Empty<SkinData>();
@@ -163,14 +174,14 @@ namespace ModMenuCrew.Patches
                 var nameplates = manager.allNamePlates?.ToArray() ?? Array.Empty<NamePlateData>();
                 var bundles = manager.allBundles?.ToArray() ?? Array.Empty<BundleData>();
 
-                // Desbloquear categorias individuais
+                // Unlock individual cosmetic categories
                 UnlockAndPurchaseAll(pets, purchasesData);
                 UnlockAndPurchaseAll(hats, purchasesData);
                 UnlockAndPurchaseAll(skins, purchasesData);
                 UnlockAndPurchaseAll(visors, purchasesData);
                 UnlockAndPurchaseAll(nameplates, purchasesData);
 
-                // Validar e desbloquear bundles
+                // Validate and unlock bundles (skip bundles with invalid pets)
                 var validBundles = new List<BundleData>();
                 foreach (var bundle in bundles)
                 {
@@ -186,7 +197,7 @@ namespace ModMenuCrew.Patches
                                 isValid = false;
                                 break;
                             }
-                            // Verifica se o bundle contém um pet inválido (que não está na lista carregada)
+                            // Check if bundle contains an invalid pet (not in the loaded list)
                             if (cosmetic is PetData petData && !pets.Any(p => p != null && p.ProductId == petData.ProductId))
                             {
                                 isValid = false;
@@ -199,7 +210,7 @@ namespace ModMenuCrew.Patches
                 }
                 UnlockAndPurchaseAll(validBundles, purchasesData);
 
-                // Desbloquear itens em destaque
+                // Unlock featured items
                 try
                 {
                     UnlockAndPurchaseAll(manager.allFeaturedBundles?.ToArray(), purchasesData);
@@ -208,7 +219,7 @@ namespace ModMenuCrew.Patches
                 }
                 catch (Exception ex) { Debug.LogWarning($"[ModMenuCrew] Featured unlock error: {ex.Message}"); }
 
-                // Corrigir preço de StarBundles
+                // Fix StarBundle prices to 0
                 var starBundles = manager.allStarBundles?.ToArray();
                 if (starBundles != null)
                 {
@@ -218,7 +229,7 @@ namespace ModMenuCrew.Patches
                     }
                 }
 
-                // Atualizar visualização da loja para evitar notificações de "novo"
+                // Reset store view dates to suppress "new item" badges
                 if (playerData.store != null)
                 {
                     var now = DateTime.Now;

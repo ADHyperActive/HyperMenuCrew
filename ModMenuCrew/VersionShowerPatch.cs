@@ -58,29 +58,29 @@ namespace ModMenuCrew.Patches
 
     public class VersionShowerFx : MonoBehaviour
     {
-        // --- Cache de Componentes ---
+        // --- Component Cache ---
         private TextMeshPro _text;
         private RectTransform _textRectTransform;
 
-        // --- Dados de Texto ---
+        // --- Text Data ---
         private string _baseText;
         private string _modText;
         private readonly StringBuilder _textBuilder = new StringBuilder(256);
 
-        // --- Estados e Controles ---
+        // --- State & Control ---
         private bool _isEffectRunning;
         private bool _isGlitchActive;
         private Coroutine _schedulerRoutine;
         private Coroutine _breathingRoutine;
 
-        // --- Cache de Valores Base ---
+        // --- Base Value Cache ---
         private Vector2 _baseAnchoredPosition;
         private float _baseScale;
         private Color _baseColor;
         private Color _baseOutlineColor;
         private float _baseOutlineWidth;
 
-        // --- PERFORMANCE: Cache de WaitForSeconds otimizado ---
+        // --- PERFORMANCE: Cached WaitForSeconds instances ---
         private static readonly WaitForSeconds sWaitFrame = new WaitForSeconds(0.016f);
         private static readonly WaitForSeconds sWait025 = new WaitForSeconds(0.025f);
         private static readonly WaitForSeconds sWait04 = new WaitForSeconds(0.04f);
@@ -91,23 +91,23 @@ namespace ModMenuCrew.Patches
         private static readonly WaitForSeconds sWait2 = new WaitForSeconds(0.2f);
         private static readonly WaitForSeconds sWait3 = new WaitForSeconds(0.3f);
 
-        // --- Probabilidades e Cooldowns (MAIS AGRESSIVO PARA TERROR) ---
+        // --- Probabilities & Cooldowns ---
         private static float sProbPhantom = 0.04f;
         private static float sProbMythic = 0.12f;
         private static float sProbRare = 0.30f;
         private float _heavyCooldownSeconds = 8f;
         private float _nextHeavyAllowedTime = 0f;
 
-        // --- Paleta de Cores Terror ---
+        // --- Horror Color Palette ---
         private static readonly Color FnafGreen = new Color(0.6f, 1f, 0.3f);
         private static readonly Color AlertOrange = new Color(1f, 0.4f, 0f);
-        private static readonly Color DeadRed = new Color(1f, 0.0f, 0.0f); // Vermelho puro
-        private static readonly Color BloodDark = new Color(0.5f, 0.0f, 0.0f); // Vermelho sangue escuro
+        private static readonly Color DeadRed = new Color(1f, 0.0f, 0.0f);
+        private static readonly Color BloodDark = new Color(0.5f, 0.0f, 0.0f);
         private static readonly Color GhostCyan = new Color(0.4f, 1f, 1f, 0.8f);
 
         private static readonly System.Random sRandom = new System.Random();
 
-        // --- Dados Estáticos (MENSAGENS DE TERROR) ---
+        // --- Static Data (Horror Messages) ---
         private static readonly string[] sSystemMessages =
         {
             "SUS", "[REDACTED]", "ACCESS DENIED", "SECURITY ALERT", "UNKNOWN SIGNAL",
@@ -141,7 +141,7 @@ namespace ModMenuCrew.Patches
             if (_text != null) return;
             if (text == null)
             {
-                Debug.LogError("[VersionShowerFx] TextMeshPro é null!");
+                Debug.LogError("[VersionShowerFx] TextMeshPro is null!");
                 return;
             }
 
@@ -167,7 +167,7 @@ namespace ModMenuCrew.Patches
                 _schedulerRoutine = StartCoroutine(GlitchScheduler().WrapToIl2Cpp());
                 _breathingRoutine = StartCoroutine(IdleBreathing().WrapToIl2Cpp());
 
-                Debug.Log("[VersionShowerFx] Efeitos de terror inicializados!");
+                Debug.Log("[VersionShowerFx] Horror effects initialized!");
             }
         }
 
@@ -229,14 +229,14 @@ namespace ModMenuCrew.Patches
                     var rt = _textRectTransform;
                     float t = Time.time + seed;
                     
-                    // Respiração irregular
+                    // Irregular breathing effect
                     float breathingSpeed = 1.5f + Mathf.Sin(t * 0.3f); 
                     float scaleNoise = (Mathf.Sin(t * breathingSpeed) * 0.08f) + (Mathf.Sin(t * 5f) * 0.02f);
                     float angle = Mathf.Sin(t * 0.8f) * 1.2f;
                     
                     rt.localRotation = Quaternion.Euler(0, 0, angle);
                     rt.localScale = new Vector3(_baseScale + scaleNoise, _baseScale + scaleNoise, 1f);
-                    // Removido modificação de posição no Idle para evitar drift ou sair da tela
+                    // Position modification removed from Idle to prevent drift
                     // rt.anchoredPosition = _baseAnchoredPosition + ...
                 }
                 yield return sWaitFrame;
@@ -249,7 +249,7 @@ namespace ModMenuCrew.Patches
             int eventType = sRandom.Next(0, 6);
             switch (eventType)
             {
-                case 0: yield return Jitter(0.3f, 1.0f, 1.5f); break; // Reduzido range
+                case 0: yield return Jitter(0.3f, 1.0f, 1.5f); break;
                 case 1: yield return TextCorruption(0.4f, 6, _modText); break;
                 case 2: yield return VHSStaticBurst(0.35f); break;
                 case 3: yield return GreenPulse(0.4f); break;
@@ -283,7 +283,7 @@ namespace ModMenuCrew.Patches
             {
                 case 0: yield return ImpostorFlash(DeadRed); break;
                 case 1: yield return TextCorruption(1.0f, 15, sSystemMessages[sRandom.Next(sSystemMessages.Length)]); break;
-                case 2: yield return Jitter(0.8f, 4f, 5f); break; // Reduzido de 10f para 4f
+                case 2: yield return Jitter(0.8f, 4f, 5f); break;
                 case 3: yield return SystemWarning("O2 DEPLETED", 1f, AlertOrange); break;
                 case 4: yield return SystemWarning("REACTOR CRITICAL", 1.2f, DeadRed); break;
                 case 5: yield return TrackingNoise(0.9f); break;
@@ -328,7 +328,7 @@ namespace ModMenuCrew.Patches
             }
         }
 
-        // --- SEQUÊNCIAS TERROR ---
+        // --- HORROR SEQUENCES ---
 
         [HideFromIl2Cpp]
         private IEnumerator Sequence_TheStare()
@@ -340,7 +340,7 @@ namespace ModMenuCrew.Patches
              _text.color = DeadRed;
              SetText("O_O", true);
              yield return new WaitForSeconds(0.5f);
-             yield return Jitter(0.5f, 6f, 5f); // Reduzido de 20f
+             yield return Jitter(0.5f, 6f, 5f);
              yield return ImpostorFlash(Color.black);
         }
         
@@ -476,7 +476,7 @@ namespace ModMenuCrew.Patches
         {
             for (int i = 0; i < 3; i++)
             {
-                yield return Jitter(0.4f + (i * 0.1f), 3f + (i * 1.5f), 6f + (i * 3f)); // Reduzido pos range
+                yield return Jitter(0.4f + (i * 0.1f), 3f + (i * 1.5f), 6f + (i * 3f));
                 yield return sWait15;
                 yield return ChromaticAberration(0.35f);
                 yield return sWait15;
@@ -484,10 +484,10 @@ namespace ModMenuCrew.Patches
 
             yield return PhantomAppearance("IT'S HERE", DeadRed, 0.6f);
             yield return sWait15;
-            yield return Jitter(1f, 8f, 25f); // Reduzido max de 20f para 8f
+            yield return Jitter(1f, 8f, 25f);
         }
 
-        // --- EFEITOS BÁSICOS OTIMIZADOS ---
+        // --- OPTIMIZED BASE EFFECTS ---
 
         [HideFromIl2Cpp]
         private void SetText(string content, bool isGlitching = false)
@@ -816,8 +816,8 @@ namespace ModMenuCrew.Patches
 
                 SetText(CorruptText(_modText, (int)(intensity * 5)), true);
 
-                float jitterX = ((float)sRandom.NextDouble() - 0.5f) * intensity * 2f; // Reduzido de 6f
-                float jitterY = ((float)sRandom.NextDouble() - 0.5f) * intensity * 2f; // Reduzido de 6f
+                float jitterX = ((float)sRandom.NextDouble() - 0.5f) * intensity * 2f; // Reduced from 6f
+                float jitterY = ((float)sRandom.NextDouble() - 0.5f) * intensity * 2f; // Reduced from 6f
 
                 rt.anchoredPosition = new Vector2(_baseAnchoredPosition.x + jitterX, _baseAnchoredPosition.y + jitterY);
 
@@ -826,7 +826,7 @@ namespace ModMenuCrew.Patches
             }
         }
 
-        // --- UTILIDADES ---
+        // --- UTILITIES ---
 
         [HideFromIl2Cpp]
         private string CorruptText(string input, int passes)

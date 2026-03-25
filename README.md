@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Logo.jpeg" alt="ModMenuCrew - Best Among Us Mod Menu 2026 Hack Cheat Download" width="640"/>
+  <img width="1024" height="395" alt="image" src="https://github.com/user-attachments/assets/ca59c11c-0ad5-4a9b-b07f-96cbe987d417" />
 </p>
 
 <!-- H1 Optimized for Primary Keywords -->
